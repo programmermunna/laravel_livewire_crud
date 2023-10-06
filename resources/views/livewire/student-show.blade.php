@@ -28,13 +28,13 @@
 
                                 @forelse ($students as $student)
                                 <tr>
+                                    <td>{{ $student->id }}</td>
                                     <td>{{ $student->name }}</td>
-                                    <td>{{ $student->name }}</td>
-                                    <td>{{ $student->name }}</td>
-                                    <td>{{ $student->name }}</td>
+                                    <td>{{ $student->email }}</td>
+                                    <td>{{ $student->course }}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary">Edit</a>
-                                        <a href="" class="btn btn-danger">Delete</a>
+                                        <button type="button" wire:click="edit_student({{ $student->id }})" class="btn btn-primary"  data-toggle="modal" data-target="#student_edit_modal">Edit</button>
+                                        <button type="button" class="btn btn-danger">Delete</button>
                                     </td>
                                 </tr>
                                 @empty

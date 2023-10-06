@@ -10,8 +10,8 @@ class StudentShow extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    
-    public $name, $email, $course;
+
+    public $name, $email, $course, $student_id;
     
 
     protected function rules()
@@ -34,6 +34,34 @@ class StudentShow extends Component
         session()->flash('message','Student Added Successfully');
         $this->resetInput();
         $this->dispatch('close-modal');
+    }
+
+    public function updateStudent(){
+        $validated = $this->validate();
+        Student::where('id',$this->student_id)->update([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'course' => $validated['course'],
+        ]);
+        session()->flash('message','Student Update Successfully');
+        $this->resetInput();
+        $this->dispatch('close-modal');
+    }
+
+    public function edit_student(int $student_id){
+        $student = Student::find($student_id);
+        if($student){
+            $this->student_id = $student->id;
+            $this->name = $student->name;
+            $this->email = $student->email;
+            $this->course = $student->course;
+        }else{
+            return redirect()->to('/students');
+        }
+    }
+
+    public function closeModal(){
+        $this->resetInput();
     }
 
     public function resetInput(){
