@@ -1,6 +1,14 @@
 @extends('layouts.app')
 @section('content')
     <div>
-        <livewire:student>
+        <livewire:studentShow>
     </div>
+@endsection
+
+@section('script')
+<script>
+    window.addEventListener('close-modal', event => {
+        $('#student_add_modal').modal('hide');
+    })
+    </script>
 @endsection
