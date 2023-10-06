@@ -46,7 +46,7 @@ class StudentShow extends Component
         session()->flash('message','Student Update Successfully');
         $this->resetInput();
         $this->dispatch('close-modal');
-    }
+    } 
 
     public function edit_student(int $student_id){
         $student = Student::find($student_id);
@@ -58,6 +58,17 @@ class StudentShow extends Component
         }else{
             return redirect()->to('/students');
         }
+    }
+
+    public function delete_student(int $student_id){
+        $this->student_id = $student_id;
+    }
+
+    public function destroyStudent(){
+        Student::find($this->student_id)->delete();
+        session()->flash('message','Student Delete Successfully');
+        $this->resetInput();
+        $this->dispatch('close-modal');
     }
 
     public function closeModal(){

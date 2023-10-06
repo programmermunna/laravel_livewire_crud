@@ -71,3 +71,26 @@
     </div>
   </div>
 </div>
+
+  <!-- Student Delete Modal -->
+  <div wire:ignore.self class="modal fade" id="student_delete_modal" tabindex="-1" role="dialog" aria-labelledby="student_delete_modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="student_delete_modal_title">Edit Student</h5>
+          <button type="button" class="close" wire:click="closeModal" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form wire:submit.prevent="destroyStudent">
+            <div class="modal-body">
+                <h4 class="text-danger">Are You Sure To Delete Student?</h4>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" wire:click="closeModal" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Yes! Delete</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>

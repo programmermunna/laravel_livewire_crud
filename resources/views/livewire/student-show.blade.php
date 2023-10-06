@@ -34,7 +34,7 @@
                                     <td>{{ $student->course }}</td>
                                     <td>
                                         <button type="button" wire:click="edit_student({{ $student->id }})" class="btn btn-primary"  data-toggle="modal" data-target="#student_edit_modal">Edit</button>
-                                        <button type="button" class="btn btn-danger">Delete</button>
+                                        <button type="button" wire:click="delete_student({{ $student->id }})" class="btn btn-danger" data-toggle="modal" data-target="#student_delete_modal">Delete</button>
                                     </td>
                                 </tr>
                                 @empty
