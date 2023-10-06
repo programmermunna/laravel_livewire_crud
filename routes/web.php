@@ -16,11 +16,18 @@ use App\Http\Controllers\StudentController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('students',[StudentController::class,'Index']);
+
+Route::get('/about',function(){
+    return view('about');
+});
+Route::get('/contact',function(){
+    return view('contact');
+});
