@@ -12,6 +12,7 @@ class StudentShow extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $name, $email, $course, $student_id;
+    public $searchStudent = ''; 
     
 
     protected function rules()
@@ -81,10 +82,9 @@ class StudentShow extends Component
         $this->course = '';
     }
 
-
     public function render()
     {
-        $students = Student::orderBy('id','DESC')->paginate(3);
+        $students = Student::where('name', 'like', '%'.$this->searchStudent.'%')->orderBy('id','DESC')->paginate(3);
         return view('livewire.student-show',['students'=>$students]);
     }
 }

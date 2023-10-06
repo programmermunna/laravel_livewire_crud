@@ -9,7 +9,8 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="d-flex justify-content-between">
-                            <h4>Laravel Livewire Crud with Bootstrap Modal</h4>
+                            <h6>Laravel Livewire Crud with Bootstrap Modal</h6>
+                            <input type="search"wire:model="searchStudent" placeholder="Search Here..." class="form-control" style="width: 400px;" >
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#student_add_modal">Add Student</button>
                         </div>
                     </div>
